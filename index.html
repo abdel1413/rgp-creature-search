@@ -8,26 +8,57 @@
     <title>RGP-creature</title>
 </head>
 <body>
+    <nav>FreeCodeCamp</nav>
     <h1>RGP Creature Search app</h1>
     <main id="main">
         <section id="search-container">
             <div>
             <p>Search for creature name of ID</p>
+            <div class="input-div">
             <input type="text" placeholder="Enter name or ID"/>
-            <button type='submit'>Search</button>
+            <button type='submit' id="search">Search</button>
+            </div>
             </div>
         </section>
         <section id="details-container">
-            <div >
-                 <p>Details</p>
+            <div id="details">
+                 <h3>name</h3>
+                 <div id='height-weight'> 
+                     <p>weight</p>
+                     <p>height</p>
+                 </div>
+                 <div id="types">
+                    <button>type1</button>
+                    <button>type2</button>
+                 </div>
             </div>
         </section>
         <section  id="description-container">
-           <div>descrtion</div>
+           <div id="special">
+               <p>Here goes specials</p>
+           </div>
         </section>
         <section id="results-container">
-            <div>Result Details</div>
+            <div id="stats">
+             <table>       
+               <caption id='caption'>How I chose to spend my money</caption>
+                <tr>
+                  <th colspan="2">Base</th>
+                  <th>Stats</th>
+                </tr>
+                <tr>
+                  <td colspan="2">1</td>
+                  <td>11</td>
+                  
+              </tr>
+              <tr>
+                  <td colspan="2">2</td>
+                  <td>22</td> 
+              </tr>
+                </table>
+            </div>
         </section>
+        
     </main>
     <script src="./script.js"></script>
 </body>
