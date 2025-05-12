@@ -18,7 +18,14 @@ body {
 }
 h1,
 nav {
-  color: white;
+  color: #f5f6f7;
+  margin: 1.1rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+nav {
+  font-size: 1.5em;
 }
 main {
   border: 1px solid black;
@@ -27,67 +34,111 @@ main {
   box-shadow: 9px 9px 5px #aeabb1;
   border-radius: 15px;
   background-color: #f5f6f7;
+  width: 50%;
 }
 .input-div {
   display: flex;
-
   margin: 10px 0;
 }
-div input {
+div #search-input {
   margin: 0.3rem;
-
   padding: 10px;
   margin-right: none;
   font-size: 1.2em;
   text-align: center;
 }
-div #search {
+div #search-button {
   margin: 0.3rem;
   font-size: 1.2rem;
   padding: 10px;
-
   border-radius: 20px;
   background-color: #8037ab;
   color: #f1eff4;
 }
 
+#name-info {
+  display: flex;
+}
+#creature-name {
+  margin-right: 5px;
+  font-weight: bold;
+}
 #details {
-  padding: 5px;
   float: left;
   clear: both;
   margin: 10px;
 }
+#details h3 {
+  text-align: start;
+  margin-left: 0;
+}
 
-#height-weight p {
+#height-weight {
   font-size: 1.5rem;
+  display: flex;
+}
+#height-weight p {
+  margin: 0 10px;
+}
+#types {
+  margin-top: 5px;
+  display: flex;
 }
 #types button {
-  font-size: 1.5rem;
-  margin: 0.2rem;
+  font-size: 1.2rem;
+  padding: 5px;
+  margin-right: 5px;
+  width: 100%;
+}
+#btn1 {
+  margin-right: 5px;
+}
+
+#results-container {
+  margin-top: 1.5rem;
 }
 table {
   clear: both;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 7px;
+  width: 100%;
+  margin-top: 20px;
 }
 th,
 td {
-  border: 2px solid blue;
   padding: 10px 20px;
+  background-color: #8037ab;
+  color: white;
 }
 
 table > caption {
-  display: inline-block;
-  margin: 10px;
-  text-align: center;
+  text-align: left;
   align-items: center;
   justify-content: center;
-  color: blue;
-  width: 100%;
+}
+#special-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+#special-description {
+  margin-bottom: 1.5rem;
+}
+
+.rows {
+  border-spacing: 10px;
+  margin: 10px;
 }
 #stats {
   clear: both;
   margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 156px) {
+  .input-div {
+    display: flex;
+    flex-direction: column;
+  }
 }

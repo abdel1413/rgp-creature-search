@@ -13,48 +13,67 @@
     <main id="main">
         <section id="search-container">
             <div>
-            <p>Search for creature name of ID</p>
+            <p>Search for creature name or ID</p>
             <div class="input-div">
-            <input type="text" placeholder="Enter name or ID"/>
-            <button type='submit' id="search">Search</button>
+            <input type="text" placeholder="Enter name or ID" id ='search-input' required/>
+            <button type='submit' id="search-button">Search</button>
             </div>
             </div>
         </section>
         <section id="details-container">
             <div id="details">
-                 <h3>name</h3>
+                <div id="name-info">
+                    <h3 id="creature-name">
+                    </h3>
+                    <span id='creature-id'></span>
+                </div>
                  <div id='height-weight'> 
-                     <p>weight</p>
-                     <p>height</p>
+                     <p  id="weight"></p>
+                     <p id="height"></p>
                  </div>
                  <div id="types">
-                    <button>type1</button>
-                    <button>type2</button>
+                    <!-- <button id="btn1">type1</button>
+                    <button id="btn2">type2</button> -->
                  </div>
             </div>
         </section>
-        <section  id="description-container">
-           <div id="special">
-               <p>Here goes specials</p>
-           </div>
-        </section>
+
         <section id="results-container">
             <div id="stats">
              <table>       
-               <caption id='caption'>How I chose to spend my money</caption>
-                <tr>
+                 <caption id='special-name'></caption>
+                 <caption class='special-description' id="special-description"> </caption>
+                 <tr class="rows">
                   <th colspan="2">Base</th>
                   <th>Stats</th>
                 </tr>
-                <tr>
-                  <td colspan="2">1</td>
-                  <td>11</td>
+                <tr class="rows">
+                  <th colspan="2" id="hp">HP</th>
+                  <td id="attack-data" class="base-data"></td>
                   
               </tr>
-              <tr>
-                  <td colspan="2">2</td>
-                  <td>22</td> 
+                <tr class="rows">
+                  <th colspan="2" id="attack">Attack</th>
+                  <td id="attack-data" class="base-data"></td>
+                  
               </tr>
+              <tr class="rows">
+                  <th colspan="2" id="defense">Defence</th>
+                  <td id="defense-data" class="base-data" colspan=""></td> 
+              </tr>
+              <tr class="rows">
+                  <th colspan="2" id="special-attack">Sp.Attack</th>
+                  <td id="sp-attack-data" class="base-data" colspan=""></td> 
+              </tr>
+              <tr class="rows">
+                  <th colspan="2" id="special-defense">Sp.Defence</th>
+                  <td id="sp-defense-data" class="base-data" colspan=""></td> 
+              </tr>
+              <tr class="rows">
+                  <th colspan="2" id="speed">Speed</th>
+                  <td id="speed-data" class="base-data" colspan=""></td> 
+              </tr>
+
                 </table>
             </div>
         </section>
