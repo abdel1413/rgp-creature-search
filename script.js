@@ -38,27 +38,47 @@ const colors = {
   Shadeelisk: ["#B59682", "#C68BB7"],
   Titanule: ["#ABAABB", "#43A0F6"],
   Faegis: ["#ED99ED", "#ABAABB"],
+  1: ["#EC6C4E"],
+  2: ["#43A0F6", "#BAAA66"],
+  3: ["#F7CB4B", "#9E93F1"],
+  4: ["#78CC55", "#C68BB7"],
+  5: ["#66CCF8", "#ED99ED"],
+  6: ["#DFBA52", "#8898F7"],
+  7: ["#EC6C4E", "#AABB3A"],
+  8: ["#B59682", "#EA62A2"],
+  9: ["#DFBA52", "#ABAABB"],
+  10: ["#43A0F6", "#9995D0"],
+  11: ["#EC6C4E", "#9E93F1"],
+  12: ["#78CC55", "#B59682"],
+  13: ["#66CCF8", "#F7CB4B"],
+  14: ["#BAAA66", "#EA62A2"],
+  15: ["#8898F7", "#ED99ED"],
+  16: ["#EC6C4E", "#DFBA52"],
+  17: ["#8898F7", "#BAAA66"],
+  18: ["#B59682", "#C68BB7"],
+  19: ["#ABAABB", "#43A0F6"],
+  20: ["#ED99ED", "#ABAABB"],
 };
 const fetchCreature = async () => {
-  let parse = await fetch(
+  let fetchData = await fetch(
     "https://rpg-creature-api.freecodecamp.rocks/api/creatures"
   );
 
-  let data = await parse.json();
+  let data = await fetchData.json();
 
   const found = data.find(
     (d) => d.name === input.value || d.id === Number(input.value)
   );
-  console.log("found", found);
 
   if (!found) {
     alert("Creature not found");
+    input.value = "";
     return;
   } else {
-    let individual = await fetch(
+    let individulaData = await fetch(
       `https://rpg-creature-api.freecodecamp.rocks/api/creature/${found.id}`
     );
-    let response = await individual.json();
+    let response = await individulaData.json();
 
     creatureName.textContent = response.name;
     creatureId.textContent = ` #${response.id}`;
@@ -69,13 +89,10 @@ const fetchCreature = async () => {
     types.innerHTML = ``;
     response.types.forEach((type, i) => {
       types.innerHTML += `<div class="type" id="${i}">${type.name}</div>`;
-
-      console.log("d", document.getElementById(`${i}`), i);
       document.getElementById(`${i}`).style.backgroundColor = `${
         colors[input.value][i]
       }`;
     });
-
     const stats = response.stats;
     const baseArray = Array.from(baseData);
 
