@@ -16,6 +16,29 @@ const spDefenseData = document.getElementById("sp-defense-data");
 const speedData = document.getElementById("speed-data");
 const searchBtn = document.getElementById("search-button");
 const baseData = document.getElementsByClassName("base-data");
+
+const colors = {
+  Pyrolynx: ["#EC6C4E"],
+  Aquoroc: ["#43A0F6", "#BAAA66"],
+  Voltadon: ["#F7CB4B", "#9E93F1"],
+  Floraspine: ["#78CC55", "#C68BB7"],
+  Cryostag: ["#66CCF8", "#ED99ED"],
+  Terradon: ["#DFBA52", "#8898F7"],
+  Emberapod: ["#EC6C4E", "#AABB3A"],
+  Lunaclaw: ["#B59682", "#EA62A2"],
+  Quillquake: ["#DFBA52", "#ABAABB"],
+  Mystifin: ["#43A0F6", "#9995D0"],
+  Dracilume: ["#EC6C4E", "#9E93F1"],
+  Thornaconda: ["#78CC55", "#B59682"],
+  Frostbyte: ["#66CCF8", "#F7CB4B"],
+  Graviboa: ["#BAAA66", "#EA62A2"],
+  Zephyreon: ["#8898F7", "#ED99ED"],
+  Blazebore: ["#EC6C4E", "#DFBA52"],
+  Brontogale: ["#8898F7", "#BAAA66"],
+  Shadeelisk: ["#B59682", "#C68BB7"],
+  Titanule: ["#ABAABB", "#43A0F6"],
+  Faegis: ["#ED99ED", "#ABAABB"],
+};
 const fetchCreature = async () => {
   let parse = await fetch(
     "https://rpg-creature-api.freecodecamp.rocks/api/creatures"
@@ -32,24 +55,28 @@ const fetchCreature = async () => {
     alert("Creature not found");
     return;
   } else {
-    console.log(found.id);
     let individual = await fetch(
       `https://rpg-creature-api.freecodecamp.rocks/api/creature/${found.id}`
     );
-    let resp = await individual.json();
+    let response = await individual.json();
 
-    creatureName.textContent = resp.name;
-    creatureId.textContent = ` #${resp.id}`;
-    weight.textContent = ` Weight: ${resp.weight}`;
-    height.textContent = ` Height: ${resp.height}`;
-    specialName.textContent = resp.special.name;
-    specialDescription.textContent = resp.special.description;
+    creatureName.textContent = response.name;
+    creatureId.textContent = ` #${response.id}`;
+    weight.textContent = ` Weight: ${response.weight}`;
+    height.textContent = ` Height: ${response.height}`;
+    specialName.textContent = response.special.name;
+    specialDescription.textContent = response.special.description;
     types.innerHTML = ``;
-    resp.types.forEach((type) => {
-      types.innerHTML += `<button>${type.name}</button`;
+    response.types.forEach((type, i) => {
+      types.innerHTML += `<div class="type" id="${i}">${type.name}</div>`;
+
+      console.log("d", document.getElementById(`${i}`), i);
+      document.getElementById(`${i}`).style.backgroundColor = `${
+        colors[input.value][i]
+      }`;
     });
 
-    const stats = resp.stats;
+    const stats = response.stats;
     const baseArray = Array.from(baseData);
 
     for (let i = 0; i < baseArray.length; i++) {
@@ -57,12 +84,7 @@ const fetchCreature = async () => {
     }
   }
 
-  //   let matchingApi = fetch(
-  //     "https://rpg-creature-api.freecodecamp.rocks/api/creature/pyrolynx"
-  //   )
-  //     .then((resp) => resp.json())
-  //     .then((data) => console.log("d", data));
-
-  //   matchingApi.then((result) => console.log(result));
+  input.value = "";
 };
+
 searchBtn.addEventListener("click", fetchCreature);
